@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Work</title>
+  <script src="https://cdn.tailwindcss.com?plugins=aspect-ratio"></script>
+  <style>
+    .overlay-text {
+      position: absolute;
+      bottom: 3rem;
+      left: 1rem;
+      color: white;
+      font-weight: bold;
+      font-size: 1.25rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    }
+    
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+    .image-card:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body class="bg-white text-black min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="container mx-auto px-4 py-6">
+    <div class="flex justify-between items-center">
+      <div class="w-24"></div>
+      <h1 class="text-4xl font-bold text-center">Stuti Jain</h1>
+      <div class="w-24 flex justify-end relative">
+        <button id="menuButton" class="p-2 border border-gray-300 rounded-md flex items-center justify-center">
+          <div class="flex flex-col justify-between w-6 h-5">
+            <span class="block h-0.5 w-full bg-black"></span>
+            <span class="block h-0.5 w-full bg-black"></span>
+            <span class="block h-0.5 w-full bg-black"></span>
+          </div>
+        </button>
+        <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white shadow-md rounded-md z-50">
+          <a href="Home.html" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+          <a href="About.html" class="block px-4 py-2 hover:bg-gray-100">About</a>
+          <!-- <a href="PersonalWork.html" class="block px-4 py-2 hover:bg-gray-100">Personal Work</a>
+          <a href="AssistedWork.html" class="block px-4 py-2 hover:bg-gray-100">Assisted Work</a> -->
+          <a href="Contact.html" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-12">
+    <!-- Project Title -->
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-left ml-4 md:ml-0 font-serif">
+      Personal Work
+    </h2>
+
+    <!-- Image Grid -->
+    <!-- <div class="grid grid-cols-1 sm:grid-cols-2 gap-6"> -->
+    <div class="flex flex-col gap-6">
+      
+      <!-- Image 1 -->
+      <a href="high_low_key_light.html" class="image-card">
+        <img src="Personal Work\DSC04408.jpg" alt="High Key Lighting" class="w-full aspect-[16/9] object-cover object-center" />
+        <div class="overlay-text">high key and low key lighting</div>
+      </a>
+
+      <!-- Image 2 -->
+      <a href="candel_light.html" class="image-card">
+        <img src="Personal Work\DSC06359 (1).jpg" alt="Candle Light" class="w-full aspect-[16/9] object-cover object-center" />
+        <div class="overlay-text">candel light photoshoot</div>
+      </a>
+
+      <!-- Image 3 -->
+      <a href="natural_light.html" class="image-card">
+        <img src="Personal Work\DSC03787.jpg" alt="Natural Light" class="w-full aspect-[16/9] object-cover object-center" />
+        <div class="overlay-text">natural light photoshoot</div>
+      </a>
+
+      <!-- Image 6 -->
+      <a href="fashion_riya.html" class="image-card">
+        <img src="Personal Work\ANL05709_1.jpg" alt="High Key Lighting" class="w-full aspect-[16/9] object-cover object-center" />
+        <div class="overlay-text">fashion shoot</div>
+      </a>
+
+      <!-- Image 4 -->
+      <a href="gobo_effect.html" class="image-card">
+        <img src="Personal Work\DSC04990 (1).jpg" alt="Gobo Effect" class="w-full aspect-[16/9] object-cover object-center" />
+        <div class="overlay-text">gobo effect lighting</div>
+      </a>
+      <!-- Image 5 -->
+      <a href="fashion_shoots.html" class="image-card">
+        <img src="Personal Work\DSC07268 (1).jpg" alt="Fashion shoots" class="w-full aspect-[16/9] object-cover object-center" />
+        <div class="overlay-text">fashion shoot</div>
+      </a>
+
+      <!-- Image 7 -->
+      <a href="Video_Gallery.html" class="image-card">
+        <img src="Video_Gallery\video-cover-image.jpg" alt="High Key Lighting" class="w-full aspect-[16/9] object-cover object-center" />
+        <div class="overlay-text">Video Gallery</div>
+      </a>
+
+      <!-- Image 7 -->
+      <a href="Ecom.html" class="image-card">
+        <img src="cover_images\DSC03431 (1).jpg" alt="High Key Lighting" class="w-full aspect-[16/9] object-cover object-center" />
+        <div class="overlay-text">E-commerce</div>
+      </a>
+
+
+    </div>
+  </main>
+
+     <!-- Back Button -->
+    <div class="text-center my-12">
+    <a href="javascript:history.back()" 
+        class="text-gray-500 hover:text-black text-lg font-semibold opacity-50 hover:opacity-100 transition duration-200">
+        &laquo; back
+    </a>
+    </div>
+
+  <!-- Footer -->
+  <footer class="container mx-auto px-4 py-8 mt-12 border-t border-gray-200">
+    <div class="text-center text-gray-500">
+      <p>&copy; 2025 Stuti Jain Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Dropdown Toggle Script -->
+  <script>
+    const button = document.getElementById('menuButton');
+    const menu = document.getElementById('dropdownMenu');
+
+    button.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!button.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>

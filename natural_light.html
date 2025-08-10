@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natural Light</title>
+  <script src="https://cdn.tailwindcss.com?plugins=aspect-ratio"></script>
+  <style>
+    .image-container:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body class="bg-white text-black min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="container mx-auto px-4 py-6">
+    <div class="flex justify-between items-center">
+      <div class="w-24"></div>
+
+      <h1 class="text-4xl font-bold text-center">Stuti Jain</h1>
+
+      <!-- Dropdown -->
+      <div class="w-24 flex justify-end relative">
+        <button id="menuButton" class="p-2 border border-gray-300 rounded-md flex items-center justify-center">
+          <div class="flex flex-col justify-between w-6 h-5">
+            <span class="block h-0.5 w-full bg-black"></span>
+            <span class="block h-0.5 w-full bg-black"></span>
+            <span class="block h-0.5 w-full bg-black"></span>
+          </div>
+        </button>
+        <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white shadow-md rounded-md z-50">
+          <a href="Home.html" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+          <a href="About.html" class="block px-4 py-2 hover:bg-gray-100">About</a>
+          <!-- <a href="PersonalWork.html" class="block px-4 py-2 hover:bg-gray-100">Personal Work</a>
+          <a href="AssistedWork.html" class="block px-4 py-2 hover:bg-gray-100">Assisted Work</a> -->
+          <a href="Contact.html" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Project Content -->
+  <main class="container mx-auto px-4 py-12">
+    <!-- <section class="max-w-4xl mx-auto"> -->
+        <h2 class="text-5xl font-extrabold mb-7 text-left ml-4 md:ml-0 font-serif"> 
+        Natural light photoshoot
+        </h2>
+        <!-- Description and images go here -->
+    <!-- </section> -->
+
+    <p class="text-center max-w-3xl mx-auto text-gray-700 mb-10">
+      Shot using natural light — observing how it falls, shifts, and softens across the frame. It was all about keeping things simple and letting the light speak for itself.
+    </p>
+
+    <!-- Image Grid -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 image-gallery">
+      <!-- Replace each src with your actual image URLs -->
+      <img src="natural_light\DSC03782.jpg" alt="Project Image" class="rounded-lg shadow image-container transition duration-300">
+      <img src="natural_light\DSC03794.jpg" alt="Project Image" class="rounded-lg shadow image-container transition duration-300">
+      <img src="natural_light\DSC03799.jpg" alt="Project Image" class="rounded-lg shadow image-container transition duration-300">
+      <img src="natural_light\DSC03807.jpg" alt="Project Image" class="rounded-lg shadow image-container transition duration-300">
+
+      
+
+      <!-- Add more images as needed -->
+    </section>
+  </main>
+
+     <!-- Back Button -->
+    <div class="text-center my-12">
+    <a href="javascript:history.back()" 
+        class="text-gray-500 hover:text-black text-lg font-semibold opacity-50 hover:opacity-100 transition duration-200">
+        &laquo; back
+    </a>
+    </div>
+    
+  <!-- Footer -->
+  <footer class="container mx-auto px-4 py-8 mt-12 border-t border-gray-200">
+    <div class="text-4xl md:text-center text-gray-500">
+      <p>&copy; 2025 Stuti Jain Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+    <button id="closeLightbox" class="absolute top-4 right-4 text-white text-3xl font-bold">&times;</button>
+    <button id="prevImage" class="absolute left-4 text-white text-4xl font-bold">&#10094;</button>
+    <img id="lightboxImage" src="" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-lg object-contain" />
+    <button id="nextImage" class="absolute right-4 text-white text-4xl font-bold">&#10095;</button>
+    </div>
+    
+  <!-- Dropdown Script -->
+  <script>
+
+    const images = document.querySelectorAll('.image-gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeBtn = document.getElementById('closeLightbox');
+    const nextBtn = document.getElementById('nextImage');
+    const prevBtn = document.getElementById('prevImage');
+
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+        img.addEventListener('click', () => {
+        currentIndex = index;
+        showLightbox(img.src);
+        });
+    });
+
+    function showLightbox(src) {
+        lightboxImage.src = src;
+        lightbox.classList.remove('hidden');
+    }
+
+    closeBtn.addEventListener('click', () => {
+        lightbox.classList.add('hidden');
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        lightboxImage.src = images[currentIndex].src;
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        lightboxImage.src = images[currentIndex].src;
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+        lightbox.classList.add('hidden');
+        }
+    });
+
+    // Optional: Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+        lightbox.classList.add('hidden');
+        }
+    });
+
+
+        const button = document.getElementById('menuButton');
+        const menu = document.getElementById('dropdownMenu');
+
+        button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+        });
+  </script>
+
+</body>
+</html>

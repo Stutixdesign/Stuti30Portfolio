@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .overlay-text {
+      position: absolute;
+      bottom: 3rem;
+      left: 1rem;
+      color: white;
+      font-weight: bold;
+      font-size: 1.25rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    }
+    
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+    .image-card:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body class="bg-white text-black min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="container mx-auto px-4 py-6">
+    <div class="flex justify-between items-center">
+      <div class="w-24"></div>
+      <h1 class="text-4xl font-bold text-center">Stuti Jain</h1>
+      <div class="w-24 flex justify-end relative">
+        <button id="menuButton" class="p-2 border border-gray-300 rounded-md flex items-center justify-center">
+          <div class="flex flex-col justify-between w-6 h-5">
+            <span class="block h-0.5 w-full bg-black"></span>
+            <span class="block h-0.5 w-full bg-black"></span>
+            <span class="block h-0.5 w-full bg-black"></span>
+          </div>
+        </button>
+        <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white shadow-md rounded-md z-50">
+          <a href="Home.html" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+          <a href="About.html" class="block px-4 py-2 hover:bg-gray-100">About</a>
+          <!-- <a href="PersonalWork.html" class="block px-4 py-2 hover:bg-gray-100">Personal Work</a>
+          <a href="AssistedWork.html" class="block px-4 py-2 hover:bg-gray-100">Assisted Work</a> -->
+          <a href="Contact.html" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-1 py-12">
+
+  <!-- Background Image Section -->
+  <section class="h-screen w-full bg-cover bg-center flex items-center justify-center"
+           style="background-image: url('Contact_details/contact.jpg');">
+    <!-- Social Media Icons -->
+    <div class="flex space-x-8 text-3xl opacity-70">
+      <a href="https://www.behance.net/stutibharat" class="hover:opacity-100 transition duration-300"><i class="fab fa-behance"></i></a>
+      <a href="https://www.linkedin.com/in/stuti-jain-a8403222b" class="hover:opacity-100 transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/stutii_creates?igsh=dXg1OHhnaHpkb3Vj" class="hover:opacity-100 transition duration-300"><i class="fab fa-instagram"></i></a>
+      <!-- <a href="#" class="hover:opacity-100 transition duration-300"><i class="fab fa-pinterest"></i></a> -->
+      <a href="mailto:Jainstuti2030@gmail.com" class="hover:opacity-100 transition duration-300"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+
+    <!-- Back Button -->
+    <div class="text-center my-12">
+    <a href="javascript:history.back()" 
+        class="text-gray-500 hover:text-black text-lg font-semibold opacity-50 hover:opacity-100 transition duration-200">
+        &laquo; back
+    </a>
+    </div>
+
+
+  <!-- Footer -->
+  <footer class="container mx-auto px-4 py-8 mt-12 border-t border-gray-200">
+    <div class="text-center text-gray-500">
+      <p>&copy; 2025 Stuti Jain Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Dropdown Toggle Script -->
+  <script>
+    const button = document.getElementById('menuButton');
+    const menu = document.getElementById('dropdownMenu');
+
+    button.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!button.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>

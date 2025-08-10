@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Video Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .video-thumbnail:hover {
+      transform: scale(1.02);
+    }
+    .rotated-video {
+    transform: rotate(-90deg);
+    transform-origin: center;
+    max-height: 90vh;
+    max-width: 90vw;
+    object-fit: contain;
+    }
+  </style>
+</head>
+<body class="bg-white text-black font-sans min-h-screen">
+
+  <!-- Header -->
+  <header class="container mx-auto px-4 py-6">
+    <div class="flex justify-between items-center">
+      <div class="w-24"></div>
+      <h1 class="text-4xl font-bold text-center">Stuti Jain</h1>
+      <div class="w-24 flex justify-end relative">
+        <button id="menuButton" class="p-2 border border-gray-300 rounded-md flex items-center justify-center">
+          <div class="flex flex-col justify-between w-6 h-5">
+            <span class="block h-0.5 w-full bg-black"></span>
+            <span class="block h-0.5 w-full bg-black"></span>
+            <span class="block h-0.5 w-full bg-black"></span>
+          </div>
+        </button>
+        <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white shadow-md rounded-md z-50">
+          <a href="Home.html" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+          <a href="About.html" class="block px-4 py-2 hover:bg-gray-100">About</a>
+          <!-- <a href="PersonalWork.html" class="block px-4 py-2 hover:bg-gray-100">Personal Work</a>
+          <a href="AssistedWork.html" class="block px-4 py-2 hover:bg-gray-100">Assisted Work</a> -->
+          <a href="Contact.html" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Video Thumbnails -->
+
+  <main class="container mx-auto px-4 py-12"> 
+    <!-- Project Title -->
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-left ml-4 md:ml-0 font-serif">
+      Video Gallery
+    </h2>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4 image-gallery">
+    <!-- Video 1 -->
+    <div class="cursor-pointer video-thumbnail transition duration-300 transform" onclick="openVideoModal('Video_Gallery/Video-110.mp4')">
+      <img src="Video_Gallery\Thumbnail_110 (1).png" alt="Video 1" class="rounded-lg shadow" />
+      <!-- <p class="text-center mt-2">frames</p> -->
+    </div>
+
+    <!-- Video 2 -->
+    <div class="cursor-pointer video-thumbnail transition duration-300 transform" onclick="openVideoModal('Video_Gallery/Video-554.mp4')">
+      <img src="Video_Gallery\Thumbnail_554.png" alt="Video 2" class="rounded-lg shadow" />
+      <!-- <p class="text-center mt-2">creative Shoot</p> -->
+    </div>
+
+    <!-- Video 3 -->
+    <div class="cursor-pointer video-thumbnail transition duration-300 transform" onclick="openVideoModal('Video_Gallery/Video-907.mp4')">
+      <img src="Video_Gallery\Thumbnail_907.png" alt="Video 3" class="rounded-lg shadow" />
+      <!-- <p class="text-center mt-2">lighting Demo</p> -->
+    </div>
+
+    <!-- Video 4 -->
+    <div class="cursor-pointer video-thumbnail transition duration-300 transform" onclick="openVideoModal('Video_Gallery/Video-913.mp4')">
+      <img src="Video_Gallery\Thumbnail_913.png" alt="Video 4" class="rounded-lg shadow" />
+      <!-- <p class="text-center mt-2">1scene-10angles</p> -->
+    </div>
+    </section>
+  </main>
+
+    <!-- Back Button -->
+    <div class="text-center my-12">
+    <a href="javascript:history.back()" 
+        class="text-gray-500 hover:text-black text-lg font-semibold opacity-50 hover:opacity-100 transition duration-200">
+        &laquo; back
+    </a>
+    </div>
+
+  <!-- Footer -->
+  <footer class="container mx-auto px-4 py-8 mt-12 border-t border-gray-200">
+    <div class="text-center text-gray-500">
+      <p>&copy; 2025 Stuti Jain Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Video Lightbox Modal -->
+<div id="videoModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+  <div class="relative max-w-[90vw] max-h-[90vh] w-full">
+    <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-white text-4xl font-bold z-10">
+      &times;
+    </button>
+    <video id="modalVideo" class="w-full max-h-[90vh] object-contain rounded-lg shadow-xl" controls preload="metadata">
+      <source id="modalSource" src="" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<script>
+  function openVideoModal(src) {
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalSource = document.getElementById('modalSource');
+    modalSource.src = src;
+    modalVideo.load();
+    videoModal.classList.remove('hidden');
+  }
+
+  function closeVideoModal() {
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    modalVideo.pause();
+    modalSource.src = "";
+    videoModal.classList.add('hidden');
+  }
+
+  // Optional: close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeVideoModal();
+  });
+</script>
+
+</body>
+</html>
