@@ -22,27 +22,31 @@
 
   <!-- Header -->
   <header class="container mx-auto px-4 py-6">
-    <div class="flex justify-between items-center">
-      <div class="w-24"></div>
-      <h1 class="text-4xl font-bold text-center">Stuti Jain</h1>
-      <div class="w-24 flex justify-end relative">
-        <button id="menuButton" class="p-2 border border-gray-300 rounded-md flex items-center justify-center">
-          <div class="flex flex-col justify-between w-6 h-5">
-            <span class="block h-0.5 w-full bg-black"></span>
-            <span class="block h-0.5 w-full bg-black"></span>
-            <span class="block h-0.5 w-full bg-black"></span>
-          </div>
-        </button>
-        <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white shadow-md rounded-md z-50">
-          <a href="Home.html" class="block px-4 py-2 hover:bg-gray-100">Home</a>
-          <a href="About.html" class="block px-4 py-2 hover:bg-gray-100">About</a>
-          <!-- <a href="PersonalWork.html" class="block px-4 py-2 hover:bg-gray-100">Personal Work</a>
-          <a href="AssistedWork.html" class="block px-4 py-2 hover:bg-gray-100">Assisted Work</a> -->
-          <a href="Contact.html" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+  <div class="flex justify-between items-center">
+    <div class="w-24"></div>
+
+    <!-- Prevent breaking and make font responsive -->
+    <h1 class="text-2xl sm:text-4xl font-bold text-center whitespace-nowrap">
+      Stuti Jain
+    </h1>
+
+    <!-- Mobile Dropdown -->
+    <div class="w-24 flex justify-end relative">
+      <button id="menuButton" class="p-2 border border-gray-300 rounded-md flex items-center justify-center">
+        <div class="flex flex-col justify-between w-6 h-5">
+          <span class="block h-0.5 w-full bg-black"></span>
+          <span class="block h-0.5 w-full bg-black"></span>
+          <span class="block h-0.5 w-full bg-black"></span>
         </div>
+      </button>
+      <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white shadow-md rounded-md z-50">
+        <a href="index.html" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+        <a href="About.html" class="block px-4 py-2 hover:bg-gray-100">About</a>
+        <a href="Contact.html" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Video Thumbnails -->
 
